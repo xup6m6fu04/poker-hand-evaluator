@@ -7525,27 +7525,58 @@ var nonFlushLookup = map[int]int{
 	12713977:  4647,
 }
 
-func Run(input []int) int {
+var handsCombination = [][]int{
+	{0, 1, 2, 3, 4}, {0, 1, 2, 3, 5}, {0, 1, 2, 3, 6},
+	{0, 1, 2, 4, 5}, {0, 1, 2, 4, 6}, {0, 1, 2, 5, 6},
+	{0, 1, 3, 4, 5}, {0, 1, 3, 4, 6}, {0, 1, 3, 5, 6},
+	{0, 1, 4, 5, 6}, {0, 2, 3, 4, 5}, {0, 2, 3, 4, 6},
+	{0, 2, 3, 5, 6}, {0, 2, 4, 5, 6}, {0, 3, 4, 5, 6},
+	{1, 2, 3, 4, 5}, {1, 2, 3, 4, 6}, {1, 2, 3, 5, 6},
+	{1, 2, 4, 5, 6}, {1, 3, 4, 5, 6}, {2, 3, 4, 5, 6},
+}
+
+func Run(self, board []int) int {
+	self = append(self, board...)
 	var cards [][4]int
 
-	// 五張牌
-	for i := 0; i < len(input); i++ {
-		cards = append(cards, PokerTransferList[input[i]])
+	// 七張牌
+	for i := 0; i < len(self); i++ {
+		cards = append(cards, PokerTransferList[self[i]])
 	}
 
-	var hands []int
-	product := 1
-	for _, item := range cards {
-		hands = append(hands, item[0]|item[1]|item[2]|item[3])
-		// 五張牌質數相乘
-		product *= item[1]
+	// 組成五張牌一組的所有類型的手牌，C7取5種組合
+	allHands := make([][][4]int, len(handsCombination))
+	for k1, i1 := range handsCombination {
+		allHands[k1] = make([][4]int, 5)
+		for k2, i2 := range i1 {
+			allHands[k1][k2] = cards[i2]
+		}
 	}
+
+	bestScore := 7462
+	for _, hand := range allHands {
+		product := 1
+		var hands []int
+		for _, item := range hand {
+			hands = append(hands, item[0]|item[1]|item[2]|item[3])
+			// 五張牌質數相乘
+			product *= item[1]
+		}
+		score := getScore(hands, product)
+		if score < bestScore {
+			bestScore = score
+		}
+	}
+	return scoreToType(bestScore)
+}
+
+func getScore(hands []int, product int) int {
 	if hands[0]&hands[1]&hands[2]&hands[3]&hands[4]&0xF000 > 0 {
 		// 同花
-		return scoreToType(flushLookup[product])
+		return flushLookup[product]
 	}
 	// 非同花
-	return scoreToType(nonFlushLookup[product])
+	return nonFlushLookup[product]
 }
 
 func scoreToType(score int) int {

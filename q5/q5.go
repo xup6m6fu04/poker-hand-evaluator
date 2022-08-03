@@ -2,59 +2,62 @@ package q5
 
 // PokerTransferList
 // rank, rank->prime, rank->bit, suit
-var PokerTransferList = map[int][4]int{
-	0x102: {0, 2, 65536, 16384},         // Diamond 2
-	0x103: {256, 3, 131072, 16384},      // Diamond 3
-	0x104: {512, 5, 262144, 16384},      // Diamond 4
-	0x105: {768, 7, 524288, 16384},      // Diamond 5
-	0x106: {1024, 11, 1048576, 16384},   // Diamond 6
-	0x107: {1280, 13, 2097152, 16384},   // Diamond 7
-	0x108: {1536, 17, 4194304, 16384},   // Diamond 8
-	0x109: {1792, 19, 8388608, 16384},   // Diamond 9
-	0x10a: {2048, 23, 16777216, 16384},  // Diamond 10
-	0x10b: {2304, 29, 33554432, 16384},  // Diamond J
-	0x10c: {2560, 31, 67108864, 16384},  // Diamond Q
-	0x10d: {2816, 37, 134217728, 16384}, // Diamond K
-	0x10e: {3072, 41, 268435456, 16384}, // Diamond A
-	0x202: {0, 2, 65536, 32768},         // Club 2
-	0x203: {256, 3, 131072, 32768},      // Club 3
-	0x204: {512, 5, 262144, 32768},      // Club 4
-	0x205: {768, 7, 524288, 32768},      // Club 5
-	0x206: {1024, 11, 1048576, 32768},   // Club 6
-	0x207: {1280, 13, 2097152, 32768},   // Club 7
-	0x208: {1536, 17, 4194304, 32768},   // Club 8
-	0x209: {1792, 19, 8388608, 32768},   // Club 9
-	0x20a: {2048, 23, 16777216, 32768},  // Club 10
-	0x20b: {2304, 29, 33554432, 32768},  // Club J
-	0x20c: {2560, 31, 67108864, 32768},  // Club Q
-	0x20d: {2816, 37, 134217728, 32768}, // Club K
-	0x20e: {3072, 41, 268435456, 32768}, // Club A
-	0x302: {0, 2, 65536, 8192},          // Heart 2
-	0x303: {256, 3, 131072, 8192},       // Heart 3
-	0x304: {512, 5, 262144, 8192},       // Heart 4
-	0x305: {768, 7, 524288, 8192},       // Heart 5
-	0x306: {1024, 11, 1048576, 8192},    // Heart 6
-	0x307: {1280, 13, 2097152, 8192},    // Heart 7
-	0x308: {1536, 17, 4194304, 8192},    // Heart 8
-	0x309: {1792, 19, 8388608, 8192},    // Heart 9
-	0x30a: {2048, 23, 16777216, 8192},   // Heart 10
-	0x30b: {2304, 29, 33554432, 8192},   // Heart J
-	0x30c: {2560, 31, 67108864, 8192},   // Heart Q
-	0x30d: {2816, 37, 134217728, 8192},  // Heart K
-	0x30e: {3072, 41, 268435456, 8192},  // Heart A
-	0x402: {0, 2, 65536, 4096},          // Spade 2
-	0x403: {256, 3, 131072, 4096},       // Spade 3
-	0x404: {512, 5, 262144, 4096},       // Spade 4
-	0x405: {768, 7, 524288, 4096},       // Spade 5
-	0x406: {1024, 11, 1048576, 4096},    // Spade 6
-	0x407: {1280, 13, 2097152, 4096},    // Spade 7
-	0x408: {1536, 17, 4194304, 4096},    // Spade 8
-	0x409: {1792, 19, 8388608, 4096},    // Spade 9
-	0x40a: {2048, 23, 16777216, 4096},   // Spade 10
-	0x40b: {2304, 29, 33554432, 4096},   // Spade J
-	0x40c: {2560, 31, 67108864, 4096},   // Spade Q
-	0x40d: {2816, 37, 134217728, 4096},  // Spade K
-	0x40e: {3072, 41, 268435456, 4096},  // Spade A
+
+var PokerTransferList = map[int][5]int{
+	0x50f: {0, 0, 0, 0, 0},                  // Joker 1
+	0x610: {0, 0, 0, 0, 0},                  // Joker 2
+	0x102: {0, 2, 65536, 16384, 2},          // Diamond 2
+	0x103: {256, 3, 131072, 16384, 3},       // Diamond 3
+	0x104: {512, 5, 262144, 16384, 4},       // Diamond 4
+	0x105: {768, 7, 524288, 16384, 5},       // Diamond 5
+	0x106: {1024, 11, 1048576, 16384, 6},    // Diamond 6
+	0x107: {1280, 13, 2097152, 16384, 7},    // Diamond 7
+	0x108: {1536, 17, 4194304, 16384, 8},    // Diamond 8
+	0x109: {1792, 19, 8388608, 16384, 9},    // Diamond 9
+	0x10a: {2048, 23, 16777216, 16384, 10},  // Diamond 10
+	0x10b: {2304, 29, 33554432, 16384, 11},  // Diamond J
+	0x10c: {2560, 31, 67108864, 16384, 12},  // Diamond Q
+	0x10d: {2816, 37, 134217728, 16384, 13}, // Diamond K
+	0x10e: {3072, 41, 268435456, 16384, 14}, // Diamond A
+	0x202: {0, 2, 65536, 32768, 2},          // Club 2
+	0x203: {256, 3, 131072, 32768, 3},       // Club 3
+	0x204: {512, 5, 262144, 32768, 4},       // Club 4
+	0x205: {768, 7, 524288, 32768, 5},       // Club 5
+	0x206: {1024, 11, 1048576, 32768, 6},    // Club 6
+	0x207: {1280, 13, 2097152, 32768, 7},    // Club 7
+	0x208: {1536, 17, 4194304, 32768, 8},    // Club 8
+	0x209: {1792, 19, 8388608, 32768, 9},    // Club 9
+	0x20a: {2048, 23, 16777216, 32768, 10},  // Club 10
+	0x20b: {2304, 29, 33554432, 32768, 11},  // Club J
+	0x20c: {2560, 31, 67108864, 32768, 12},  // Club Q
+	0x20d: {2816, 37, 134217728, 32768, 13}, // Club K
+	0x20e: {3072, 41, 268435456, 32768, 14}, // Club A
+	0x302: {0, 2, 65536, 8192, 2},           // Heart 2
+	0x303: {256, 3, 131072, 8192, 3},        // Heart 3
+	0x304: {512, 5, 262144, 8192, 4},        // Heart 4
+	0x305: {768, 7, 524288, 8192, 5},        // Heart 5
+	0x306: {1024, 11, 1048576, 8192, 6},     // Heart 6
+	0x307: {1280, 13, 2097152, 8192, 7},     // Heart 7
+	0x308: {1536, 17, 4194304, 8192, 8},     // Heart 8
+	0x309: {1792, 19, 8388608, 8192, 9},     // Heart 9
+	0x30a: {2048, 23, 16777216, 8192, 10},   // Heart 10
+	0x30b: {2304, 29, 33554432, 8192, 11},   // Heart J
+	0x30c: {2560, 31, 67108864, 8192, 12},   // Heart Q
+	0x30d: {2816, 37, 134217728, 8192, 13},  // Heart K
+	0x30e: {3072, 41, 268435456, 8192, 14},  // Heart A
+	0x402: {0, 2, 65536, 4096, 2},           // Spade 2
+	0x403: {256, 3, 131072, 4096, 3},        // Spade 3
+	0x404: {512, 5, 262144, 4096, 4},        // Spade 4
+	0x405: {768, 7, 524288, 4096, 5},        // Spade 5
+	0x406: {1024, 11, 1048576, 4096, 6},     // Spade 6
+	0x407: {1280, 13, 2097152, 4096, 7},     // Spade 7
+	0x408: {1536, 17, 4194304, 4096, 8},     // Spade 8
+	0x409: {1792, 19, 8388608, 4096, 9},     // Spade 9
+	0x40a: {2048, 23, 16777216, 4096, 10},   // Spade 10
+	0x40b: {2304, 29, 33554432, 4096, 11},   // Spade J
+	0x40c: {2560, 31, 67108864, 4096, 12},   // Spade Q
+	0x40d: {2816, 37, 134217728, 4096, 13},  // Spade K
+	0x40e: {3072, 41, 268435456, 4096, 14},  // Spade A
 }
 
 var flushLookup = map[int]int{
@@ -7525,7 +7528,20 @@ var nonFlushLookup = map[int]int{
 	12713977:  4647,
 }
 
-var handsCombination = [][]int{
+var handsCombinationFive = [][]int{
+	{0, 1, 2, 3, 4},
+}
+
+var handsCombinationSix = [][]int{
+	{0, 1, 2, 3, 4},
+	{0, 1, 2, 3, 5},
+	{0, 1, 2, 4, 5},
+	{0, 1, 3, 4, 5},
+	{0, 2, 3, 4, 5},
+	{1, 2, 3, 4, 5},
+}
+
+var handsCombinationSeven = [][]int{
 	{0, 1, 2, 3, 4}, {0, 1, 2, 3, 5}, {0, 1, 2, 3, 6},
 	{0, 1, 2, 4, 5}, {0, 1, 2, 4, 6}, {0, 1, 2, 5, 6},
 	{0, 1, 3, 4, 5}, {0, 1, 3, 4, 6}, {0, 1, 3, 5, 6},
@@ -7535,39 +7551,264 @@ var handsCombination = [][]int{
 	{1, 2, 4, 5, 6}, {1, 3, 4, 5, 6}, {2, 3, 4, 5, 6},
 }
 
+var chooseHandsCombination = map[int][][]int{
+	5: handsCombinationFive,
+	6: handsCombinationSix,
+	7: handsCombinationSeven,
+}
+
 func Run(self, board []int) int {
 	self = append(self, board...)
-	var cards [][4]int
-
-	// 七張牌
+	var joker int // 鬼牌張數
+	var cards [][5]int
+	// 合併七張牌 (鬼牌不加進去)
 	for i := 0; i < len(self); i++ {
+		if self[i] == 0x50f || self[i] == 0x610 {
+			joker++
+			continue
+		}
 		cards = append(cards, PokerTransferList[self[i]])
 	}
-
-	// 組成五張牌一組的所有類型的手牌，C7取5種組合
-	allHands := make([][][4]int, len(handsCombination))
-	for k1, i1 := range handsCombination {
-		allHands[k1] = make([][4]int, 5)
+	// 排出所有可能的手牌
+	// 兩張鬼牌： 一組手牌 C5取5
+	// 一張鬼牌： 六組手牌 C6取5
+	// 沒有鬼牌： 二十一組手牌 C7取5
+	allHands := make([][][5]int, len(chooseHandsCombination[len(cards)]))
+	for k1, i1 := range chooseHandsCombination[len(cards)] {
+		allHands[k1] = make([][5]int, 5)
 		for k2, i2 := range i1 {
 			allHands[k1][k2] = cards[i2]
 		}
 	}
-
-	bestScore := 7462
-	for _, hand := range allHands {
-		product := 1
-		var hands []int
-		for _, item := range hand {
-			hands = append(hands, item[0]|item[1]|item[2]|item[3])
-			// 五張牌質數相乘
-			product *= item[1]
+	switch len(cards) {
+	case 5:
+		// 有兩張鬼牌
+		// 只有一組手牌，直接回傳最強手牌類型 (考慮兩張鬼牌)
+		for key, item := range allHands {
+			maxSuitKey, maxSuitValue := getMaxSuitsCount(allHands[key])
+			// 判斷是不是同花
+			if maxSuitValue >= 3 {
+				// 判斷是不是順子
+				if isStraight(item, maxSuitKey, joker) {
+					// 判斷是不是皇家同花順
+					if isRoyalStraight(item, maxSuitKey, joker) {
+						return 1
+					}
+					return 2
+				}
+				// 有至少兩張牌一樣
+				if getSameCount(item) >= 2 {
+					// 至少兩張牌一樣+兩張鬼牌=四條
+					return 3
+				}
+				// 兩張鬼牌不會有葫蘆，剩下就是同花
+				return 5
+			} else {
+				// 判斷是不是順子
+				if isStraight(item, 0, joker) {
+					// 順子
+					return 6
+				}
+				// 兩張鬼牌最小就是三條
+				return 7
+			}
 		}
-		score := getScore(hands, product)
-		if score < bestScore {
-			bestScore = score
+	case 6:
+		// 有一張鬼牌
+		// 有六組手牌，找出最強的手牌 (考慮一張鬼牌)
+		bestScore := 9 // 最爛也有一對
+		score := 9 // 預設一對
+		for key, item := range allHands {
+			if score < bestScore {
+				bestScore = score
+			}
+			maxSuitKey, maxSuitValue := getMaxSuitsCount(allHands[key])
+			// 判斷是不是同花
+			if maxSuitValue >= 4 {
+				if isStraight(item, maxSuitKey, joker) {
+					// 判斷是不是皇家同花順
+					if isRoyalStraight(item, maxSuitKey, joker) {
+						// 皇家同花順
+						return 1
+					}
+					// 同花順
+					score = 2
+					continue
+				}
+				// 同花
+				score = 5
+				continue
+			} else {
+				// 四條
+				if getSameCount(item) >= 3 {
+					score = 3
+					continue
+				}
+				// 葫蘆
+				pairCount := getPairCount(item)
+				if pairCount == 2 {
+					score = 4
+					continue
+				}
+				// 順子
+				if isStraight(item, 0, joker) {
+					score = 6
+					continue
+				}
+				// 三條
+				if pairCount == 1 {
+					score = 7
+					continue
+				}
+				// 一對
+				score = 9
+			}
+		}
+		return bestScore
+	case 7:
+		// 沒有鬼牌
+		// 組成五張牌一組的所有類型的手牌，C7取5種組合
+		bestScore := 7462
+		for _, hand := range allHands {
+			product := 1
+			var hands []int
+			for _, item := range hand {
+				hands = append(hands, item[0]|item[1]|item[2]|item[3])
+				// 五張牌質數相乘
+				product *= item[1]
+			}
+			score := getScore(hands, product)
+			if score < bestScore {
+				bestScore = score
+			}
+		}
+		return scoreToType(bestScore)
+	}
+	return 0
+}
+
+//getMaxSuitsCount 取得組成的最多同花數量
+func getMaxSuitsCount(hands [][5]int) (int, int) {
+	suits := map[int]int{
+		4096:0,
+		8192:0,
+		16384:0,
+		32768:0,
+	}
+	for _, item := range hands {
+		suits[item[3]]++
+	}
+	maxK := 0
+	maxV := 0
+	for key, item := range suits {
+		if item > maxV {
+			maxV = item
+			maxK = key
 		}
 	}
-	return scoreToType(bestScore)
+	return maxK, maxV
+}
+
+func getPairCount(hands [][5]int) int {
+	sum := 0
+	cards := map[int]int{
+		2:0,
+		3:0,
+		4:0,
+		5:0,
+		6:0,
+		7:0,
+		8:0,
+		9:0,
+		10:0,
+		11:0,
+		12:0,
+		13:0,
+		14:0,
+	}
+	for _, item := range hands {
+		cards[item[4]]++
+	}
+	for _, item := range cards {
+		if item == 2 {
+			sum++
+		}
+	}
+	return sum
+}
+
+//getSameCount 取得一副手牌裡面相同數字的最高張數
+func getSameCount(hands [][5]int) int {
+	cards := map[int]int{
+		2:0,
+		3:0,
+		4:0,
+		5:0,
+		6:0,
+		7:0,
+		8:0,
+		9:0,
+		10:0,
+		11:0,
+		12:0,
+		13:0,
+		14:0,
+	}
+	for _, item := range hands {
+		cards[item[4]]++
+	}
+	maxV := 0
+	for _, item := range cards {
+		if item > maxV {
+			maxV = item
+		}
+	}
+	return maxV
+}
+
+//isRoyalStraight 判斷是不是皇家同花順
+func isRoyalStraight(hands [][5]int, suit int, joker int) bool {
+	sum := 0
+	for _, item := range hands {
+		if item[4] >= 10 && item[4] <= 14 && item[3] == suit {
+			sum++
+		}
+	}
+	return sum + joker >= 5
+}
+
+//isStraight 判斷是不是順子，第二個參數決定是否只排同花，第三個參數是鬼牌數量
+func isStraight(hands [][5]int, suit int, joker int) bool {
+	saves := make([]int, 15)
+	for _, item := range hands {
+		if suit != 0 && suit != item[3] {
+			continue
+		}
+		v := item[4]
+		saves[v-1] = v
+		// Ace 可以放最後也可以放第一張
+		if v == 14 {
+			saves[0] = v
+		}
+	}
+	sum := 0
+	tmp := joker
+	for i := len(saves) - 1; i >= 0; i-- {
+		if saves[i] != 0 {
+			sum++
+		} else if joker > 0 {
+			joker--
+			sum++
+		} else {
+			i = i + sum - joker
+			joker = tmp
+			sum = 0
+		}
+		if sum >= 5 {
+			return true
+		}
+	}
+	return false
 }
 
 func getScore(hands []int, product int) int {
