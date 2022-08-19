@@ -1,6 +1,6 @@
 # poker-hand-evaluator
 ### 說明
-某博弈公司的面試題目<br>
+某公司的面試題目<br>
 解法觀念主要參考 
 #### [Cactus Kev's Poker Hand Evaluator](http://suffe.cool/poker/evaluator.html)
 ***
